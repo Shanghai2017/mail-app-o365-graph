@@ -13,6 +13,6 @@ Mail Workshop code base
 2. Set up web site root path 
 
 ##Run the web site, login and see your mail list
-![alt text](showmaillist.png "The mail list")
+![alt text](showmaillist.PNG "The mail list")
 
 
