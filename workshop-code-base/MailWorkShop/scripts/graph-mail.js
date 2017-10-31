@@ -45,6 +45,8 @@ function GetMyProfile(update) {
             container.find("label").text();
             container.find("a").text("login");
         }
+
+        return data;
     });
 }
 
