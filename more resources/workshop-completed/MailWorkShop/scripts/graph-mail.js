@@ -30,7 +30,7 @@ function CreateMail() {
         var date = new Date();
         form.address.value = "jnlxu@microsoft.com"
         form.subject.value = "O365 DevDays Shanghai 2017: Build the mail App";
-        content.html("I built the mailAapp to send mail in Shanghai Event - Hello from " + me.displayName);
+        content.html("I built the mailApp to send mail in Shanghai Event - Hello from " + me.res.displayName);
     })
 }
 
@@ -46,6 +46,7 @@ function GetMyProfile(update) {
             container.find("label").text();
             container.find("a").text("login");
         }
+       return that;
     });
 }
 
