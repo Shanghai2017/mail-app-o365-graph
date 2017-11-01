@@ -1,3 +1,3 @@
-# Build the Andrioid or IOS App with Apache Cordova
+# Build the Android App with Apache Cordova
 
 
