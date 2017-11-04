@@ -10,6 +10,7 @@ $.graph.prototype.GetUser = function () {
 },
 
 $.graph.prototype.SendMail = function (data) {
+    //https://developer.microsoft.com/en-us/graph/docs/api-reference/v1.0/api/user_sendmail
     alert("Please implement the send mail function through Microsoft Graph");
 },
     $.graph.prototype.Listmessages = function () {
