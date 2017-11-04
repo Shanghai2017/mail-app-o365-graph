@@ -52,13 +52,11 @@ function GetMyProfile(update) {
 }
 
 function ShowMailList() {
-    var id = params.id;
-    var keyword = params.keyword;
 
     var container = $(document.getElementById("Show Mail List")).children(".container");
     container.html("");
 
-    graph.Listmessages(id, keyword).then(function (that) {
+    graph.Listmessages().then(function (that) {
         //render
         var data = that.res;
         $.each(data.value, function (index, item) {
@@ -79,7 +77,7 @@ function ShowMailList() {
 }
 
 function SendMail() {
-    var date = new Date();
+
     var form = $("form", $(document.getElementById("Create Mail")));
     var data = {
         "message": {
