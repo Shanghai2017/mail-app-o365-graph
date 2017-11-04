@@ -11,11 +11,10 @@ $.graph.prototype.ListEvent = function () {
 
 
 function ShowMeetingList() {
-    var id = params.id;
 
     var container = $(document.getElementById("Show Meeting List")).children(".container").html("");
 
-    graph.ListEvent(id).then(function (that) {
+    graph.ListEvent().then(function (that) {
         //render
         var data = that.res;
         $.each(data.value, function (index, item) {
