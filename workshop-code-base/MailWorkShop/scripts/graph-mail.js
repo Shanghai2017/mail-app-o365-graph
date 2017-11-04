@@ -9,10 +9,11 @@ $.graph.prototype.GetUser = function () {
     return $.get.call(this, "/me");
 },
 
-$.graph.prototype.SendMail = function (data) {
-    //https://developer.microsoft.com/en-us/graph/docs/api-reference/v1.0/api/user_sendmail
-    alert("Please implement the send mail function through Microsoft Graph");
-},
+    $.graph.prototype.SendMail = function (data) {
+        //https://developer.microsoft.com/en-us/graph/docs/api-reference/v1.0/api/user_sendmail
+        //Call the send mail graph API here
+        
+    },
     $.graph.prototype.Listmessages = function () {
         //https://developer.microsoft.com/en-us/graph/docs/api-reference/v1.0/api/user_list_messages
         return $.get.call(this, "/me/mailFolders/Inbox/messages");
@@ -52,13 +53,11 @@ function GetMyProfile(update) {
 }
 
 function ShowMailList() {
-    var id = params.id;
-    var keyword = params.keyword;
 
     var container = $(document.getElementById("Show Mail List")).children(".container");
     container.html("");
 
-    graph.Listmessages(id, keyword).then(function (that) {
+    graph.Listmessages().then(function (that) {
         //render
         var data = that.res;
         $.each(data.value, function (index, item) {
@@ -79,6 +78,34 @@ function ShowMailList() {
 }
 
 function SendMail() {
-    alert("Please implement the send mail function through Microsoft Graph");
+
+    var form = $("form", $(document.getElementById("Create Mail")));
+    var mailSubject = form.get(0).subject.value;
+    var mailContent = form.find("editor").html();
+    var mailTo = form.get(0).address.value;
+
+    var data = {
+        "message": {
+            "subject": mailSubject,
+            "body": {
+                "contentType": "Text",
+                "content": mailContent
+            },
+            "toRecipients": [
+                {
+                    "emailAddress": {
+                        "address": mailTo
+                    }
+                }
+            ],
+        }
+    }
+
+    graph.SendMail(data).then(function (that) {
+        log(that);
+        alert("send success");
+    })
+
+
 }
 
